@@ -1,0 +1,28 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.9'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'io.opentelemetry:opentelemetry-api:1.24.0'
+	implementation 'io.opentelemetry:opentelemetry-sdk:1.24.0'
+	implementation 'io.opentelemetry:opentelemetry-exporter-otlp:1.23.1'
+	implementation 'io.opentelemetry:opentelemetry-semconv:1.24.0-alpha'
+	implementation "io.opentelemetry:opentelemetry-exporter-logging:1.23.1"
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok:1.18.4'
+	annotationProcessor 'org.projectlombok:lombok:1.18.4'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
